@@ -1,0 +1,22 @@
+<% include ../partials/header.ejs %>
+  <div class="container">
+    <div class="row">
+      <h1 style="text-align: center;">Reply To <%= comment.author.username%></h1>
+      <div style="margin: 5% auto; max-width: 30%;">
+        <form class="" action="/campgrounds/<%= campground._id%>/comments/<%=comment._id%>/" method="post">
+          <div class="form-group">
+            <textarea class="form-control" name="comment[text]" placeholder="Enter campground description here"></textarea>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg btn-block" name="button">Submit</button>
+          </div>
+        </form>
+        <a href="/campgrounds">Go back</a>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+  <div class="footer">
+    <% include ../partials/footer.ejs %>
+  </div>
+  </div>

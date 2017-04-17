@@ -1,0 +1,24 @@
+<% include ../partials/header %>
+	<div class="col-md-6 col-md-offset-3">
+	<h1><%= campground.name%></h1>
+	<img src="<%= campground.image %>">
+	<p><%= campground.description %></p>
+	<form action="/campgrounds/<%= campground._id%>/comments" method="POST">
+	<textarea id="" cols="50" rows="3" name="comment[text]">
+
+	</textarea>
+	<div>
+	<button type="submit" class="btn btn-success">Add New Comment</button>
+	</div>
+	</form>
+	<% campground.comments.forEach(function(comment) { %>
+		<p id="<%= comment._id%>"><%=comment.text %> - <small><strong><%= comment.author.username %></strong></small></pid>
+		<p><a href="/campgrounds/<%= campground._id%>/comments/<%= comment._id%>/reply">Reply</a></p>
+		<% comment.comments.forEach(function(el){ %>
+			<div style="margin-left: 30px;">
+				<p><%= el.text%> - <small><strong><%=el.author.username%></strong></small></p>
+			</div>
+		<%})%>
+	<%}) %>
+	</div>
+<% include ../partials/footer %>

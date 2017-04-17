@@ -1,0 +1,24 @@
+<% include partials/header %> <
+div class = "container" >
+
+
+  <
+  header class = "jumbotron" >
+  <
+  h1 > This is the campground page. < /h1>
+
+  <
+  /header> <
+  a href = "/campgrounds/new" > Add new campground < /a>
+<% campData.forEach(function(el) { %> <
+div >
+  <
+  h4 > <%= el.name %> < /h4> <
+  img src = "<%= el.image %>"
+width = "300px"
+alt = "" >
+  <
+  /div>
+<% }) %> <
+/div>
+<% include partials/footer %>
